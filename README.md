@@ -11,7 +11,7 @@ Built and tested inside EVE-NG with three distinct network zones:
 - **DMZ (port3):** Honeypot machine (`192.168.50.10`)
 - **LAN (port2):** Internal network (`10.10.1.1/24`)
 
-![Topology](screenshots/topology.png)
+![Topology](Screenshots/topology.png)
 
 ---
 
@@ -19,7 +19,7 @@ Built and tested inside EVE-NG with three distinct network zones:
 
 Verified internal network connectivity to the gateway and confirmed internet access via NAT before launching any attacks:
 
-![Baseline Connectivity](screenshots/baseline_test.png)
+![Baseline Connectivity](Screenshots/baseline_test.png)
 
 ---
 
@@ -38,19 +38,19 @@ Verified internal network connectivity to the gateway and confirmed internet acc
 
 ### 1. FortiGate Interfaces
 Configured the interfaces for WAN, LAN, and DMZ:
-![Interfaces](screenshots/interfaces.png)
+![Interfaces](Screenshots/interfaces.png)
 
 ### 2. Firewall Policies
 Policy order is critical here. The deny policy (`AI-Auto-Block`) must sit on top of the DMZ allow policy so matching packets get dropped first:
-![Policy Order](screenshots/policy.png)
+![Policy Order](Screenshots/policy.png)
 
 ### 3. API Address Creation
 Verified that the script successfully pushed the attacker's IP to the firewall:
-![API Address](screenshots/api_address.png)
+![API Address](Screenshots/api_address.png)
 
 ### 4. Attack Test & Result
 Ran a ping test from the attacker machine to the honeypot. As soon as the first packets hit, the dashboard flagged the IP, pushed the block rule, and the ping immediately timed out:
-![Proof of Concept](screenshots/proof_of_concept.jpeg)
+![Proof of Concept](Screenshots/proof_of_concept.jpeg)
 
 ---
 
